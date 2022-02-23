@@ -10,3 +10,14 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(ggplot2)
 ```
+
+
+```{r, echo=TRUE}
+df <- read.csv("choco.csv")
+head(df)
+```
+
+```{r, echo=TRUE}
+dim(df)
+ggplot(data = df, aes(x = Review.Date, y = Rating)) + geom_bar(stat="identity")
+```
