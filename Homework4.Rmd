@@ -19,7 +19,7 @@ head(df)
 
 ```{r, echo=TRUE}
 dim(df)
-ggplot(data = df, aes(x = Review.Date, y = Rating)) + geom_bar(stat="identity")
+ggplot(df, aes(x=Review.Date)) + geom_bar()
 ```
 Question set 2:
 
