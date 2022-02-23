@@ -21,3 +21,10 @@ head(df)
 dim(df)
 ggplot(data = df, aes(x = Review.Date, y = Rating)) + geom_bar(stat="identity")
 ```
+Question set 2:
+
+1. How are ratings distributed? Draw a histogram of ratings and describe it. Don’t forget to mention outliers, if there are any.
+
+```{r, echo=TRUE}
+ggplot(df, aes(x= Rating)) + geom_histogram()
+```
