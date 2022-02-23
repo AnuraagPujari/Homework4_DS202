@@ -28,3 +28,8 @@ Question set 2:
 ```{r, echo=TRUE}
 ggplot(df, aes(x= Rating)) + geom_histogram()
 ```
+```{r, echo=TRUE}
+df %>%
+  ggplot(aes(x = Rating, y = Cocoa.Pct)) +
+  geom_point()
+```
