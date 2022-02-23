@@ -28,8 +28,16 @@ Question set 2:
 ```{r, echo=TRUE}
 ggplot(df, aes(x= Rating)) + geom_histogram()
 ```
+2.Do ratings depend on the cocoa percentage of a chocolate bar?
 ```{r, echo=TRUE}
 df %>%
   ggplot(aes(x = Rating, y = Cocoa.Pct)) +
   geom_point()
+```
+3. How do ratings compare across different company locations? Focus on the three locations with the most ratings:
+
+```{r, echo=TRUE}
+top3 <- dplyr::filter(df, Company.Location %in% c("U.S.A.", "France", "Canada"))
+ggplot(top3, aes(x=Company.Location, y= Rating)) + 
+  geom_boxplot()
 ```
