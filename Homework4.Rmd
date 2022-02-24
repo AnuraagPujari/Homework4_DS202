@@ -1,6 +1,6 @@
 ---
 title: 'Homework 4'
-author: "Akash Setti"
+author: "Akash Setti, Gauthaman Sethupathy, Anuraag Pujari, Siddarthan Prakash"
 date: "2/22/2022"
 output: html_document
 ---
@@ -21,6 +21,12 @@ head(df)
 dim(df)
 ggplot(df, aes(x=Review.Date)) + geom_bar()
 ```
+
+Question set 1:
+
+1. There are 1852 chocolate bars that are rated.
+2. Bar chart above. The number of ratings increase as time goes on. However, recently the number of ratings has gone down.
+
 Question set 2:
 
 1. How are ratings distributed? Draw a histogram of ratings and describe it. Don’t forget to mention outliers, if there are any.
@@ -28,12 +34,17 @@ Question set 2:
 ```{r, echo=TRUE}
 ggplot(df, aes(x= Rating)) + geom_histogram()
 ```
+
+The majority of ratings are between 3 and 4. Overall the histogram looks pretty symetrical and unimodal. There some outliers in the tails of the histogram. (Really bad chocolate and really good chocolate)
+
 2.Do ratings depend on the cocoa percentage of a chocolate bar?
 ```{r, echo=TRUE}
 df %>%
   ggplot(aes(x = Rating, y = Cocoa.Pct)) +
   geom_point()
 ```
+Based on the graph above we can see that the cocoa percentage has no effect on the ratings. There was no positive or negative correlation. 
+
 3. How do ratings compare across different company locations? Focus on the three locations with the most ratings:
 
 ```{r, echo=TRUE}
@@ -41,9 +52,18 @@ top3 <- dplyr::filter(df, Company.Location %in% c("U.S.A.", "France", "Canada"))
 ggplot(top3, aes(x=Company.Location, y= Rating)) + 
   geom_boxplot()
 ```
+All of the company locations have the same median. Overall, they are very similar, but I would say that Canada is the best because the Q1 and Q3 is the highest.
+
 4. For a specific company we want to see what year they had the best rating and the worst rating:
 
 ```{r, echo=TRUE}
 spcompany <- dplyr::filter(df, Company %in% c("A. Morin"))
 ggplot(spcompany, aes(x = Review.Date, fill=factor(Rating))) + geom_bar() 
 ```
+We wanted to see what year did the company A. Morin had the best ratings. We can see from the graph above that in 2013 this company had the best ratings. However it had the most ratings as well. We also were able to tell there was a larger variation of ratings with a larger sample size. 2013 was actually their best and worst year in terms of ratings.
+
+
+
+Paragraph about work flow:
+We all contributed about equally. We used Akash's git hub repository to push our code into there. We split up the questions and each tackled something different in the R markdown file for example we all worked on it together but a mojrty of question set 1 was Akash, Gautham did most of question set 2, sid worked on our own question and Anuraag helped with the code if there were issues as well as interpenetrated the graphs into words. Our repository was always up to date because we made sure to communicate almost everyday as well as update the respiratory as much as possible.
+
