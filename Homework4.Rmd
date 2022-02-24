@@ -41,3 +41,9 @@ top3 <- dplyr::filter(df, Company.Location %in% c("U.S.A.", "France", "Canada"))
 ggplot(top3, aes(x=Company.Location, y= Rating)) + 
   geom_boxplot()
 ```
+4. For a specific company we want to see what year they had the best rating and the worst rating:
+
+```{r, echo=TRUE}
+spcompany <- dplyr::filter(df, Company %in% c("A. Morin"))
+ggplot(spcompany, aes(x = Review.Date, fill=factor(Rating))) + geom_bar() 
+```
